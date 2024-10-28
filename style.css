@@ -568,7 +568,7 @@ span {
 
 .contact-form form .input-box input,
 .contact-form form textarea {
-    width: 49.377%;
+    width: 100%;
     padding: 20px;
     font-size: 15px;
     color: #0dac4f;
