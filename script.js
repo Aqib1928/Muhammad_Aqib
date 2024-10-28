@@ -141,3 +141,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const skillSections = document.querySelectorAll('.skill-per');
+
+    const options = {
+        root: null, // Use the viewport as the container
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when at least 10% of the element is visible
+    };
+
+    const callback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target;
+                skillBar.style.opacity = 1; // Show the skill bar
+                skillBar.classList.add('animate'); // Trigger the animation
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    
+    skillSections.forEach(skill => {
+        observer.observe(skill);
+    });
+});
